@@ -239,7 +239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 75958b35a7bc0424f84c6b651af84491, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75958b35a7bc0424f84c6b651af84491, type: 3}
@@ -353,6 +353,49 @@ Transform:
   m_PrefabParentObject: {fileID: 4233198264517914, guid: 25dd6e73e6756de49911d862c76b216f,
     type: 2}
   m_PrefabInternal: {fileID: 1793947684}
+--- !u!1 &690339567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 690339569}
+  - component: {fileID: 690339568}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &690339568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 690339567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d35886770bd8748a29d61515f9be13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeon: {fileID: 1036870142}
+  monsters:
+  - {fileID: 114623499569594240, guid: 73feef1dca860124e9e3f6e98cdde6f4, type: 2}
+--- !u!4 &690339569
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 690339567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &719878211
 Prefab:
   m_ObjectHideFlags: 0
@@ -617,6 +660,7 @@ GameObject:
   - component: {fileID: 1036870141}
   - component: {fileID: 1036870142}
   - component: {fileID: 1036870139}
+  - component: {fileID: 1036870143}
   - component: {fileID: 1036870138}
   m_Layer: 0
   m_Name: Dungeon
@@ -722,11 +766,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b9b41a181eff04f8d7f2b94ebf051a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dsm: {fileID: 1036870143}
   dungeonGraphicsManager: {fileID: 1036870139}
   dungeonWidth: 10
   dungeonHeight: 10
   dungeonLayoutTexture: {fileID: 2800000, guid: 469e5c478642e7b479643e715cd6a7ee,
     type: 3}
+--- !u!114 &1036870143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036870137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b51b6392c4e9cf438393394a306515b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeon: {fileID: 1036870142}
 --- !u!4 &1045346089 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4861299695742080, guid: 5e7017a9e2e0c1e4bb8e7c4a6d5cff5f,
@@ -1135,7 +1192,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.050980397, g: 0.050980397, b: 0.050980397, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1229,5 +1286,5 @@ Transform:
   - {fileID: 822951403}
   - {fileID: 599598366}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
