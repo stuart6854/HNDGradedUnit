@@ -14,6 +14,7 @@ public abstract class Monster : MonoBehaviour {
 	public WaveManager waveManager;
 
 	private NavMeshAgent navAgent;
+	private NavMeshPath path;
 
 	private void Awake(){
 		navAgent = GetComponent<NavMeshAgent>();
@@ -21,7 +22,8 @@ public abstract class Monster : MonoBehaviour {
 	}
 
 	private void Start(){
-		navAgent.SetDestination(waveManager.dungeon.getDungeonEndPos());
+		path = waveManager.dungeon.getDungeonPath();
+		navAgent.SetPath(path);
 	}
 
 	private void Update(){
@@ -30,9 +32,9 @@ public abstract class Monster : MonoBehaviour {
 			this.enabled = false;
 		}
 
-		if(!navAgent.hasPath){
-			navAgent.SetDestination(waveManager.dungeon.getDungeonEndPos());
-		}
+//		if(!navAgent.hasPath){
+//			navAgent.SetDestination(waveManager.dungeon.getDungeonEndPos());
+//		}
 	}
 
 	public void OnHit(float _dmg){

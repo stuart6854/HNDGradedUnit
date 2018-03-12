@@ -19,10 +19,10 @@ public class Dungeon : MonoBehaviour {
 
 	private Action<int, int, int> onGridTileChangedCallback;
 
-	NavMeshPath path;
+	private NavMeshPath dungeonPath;
 
 	private void Start () {
-		path = new NavMeshPath();
+		dungeonPath = new NavMeshPath();
 
 		if(dungeonLayoutTexture != null){
 			dungeonWidth = dungeonLayoutTexture.width;
@@ -74,9 +74,9 @@ public class Dungeon : MonoBehaviour {
 	}
 
 	public bool doesPathExist(){
-		NavMesh.CalculatePath(dungeonStart.ToVec3() * dungeonGraphicsManager.tileSizeSqrd, dungeonEnd.ToVec3() * dungeonGraphicsManager.tileSizeSqrd, NavMesh.AllAreas, path);
+		NavMesh.CalculatePath(dungeonStart.ToVec3() * dungeonGraphicsManager.tileSizeSqrd, dungeonEnd.ToVec3() * dungeonGraphicsManager.tileSizeSqrd, NavMesh.AllAreas, dungeonPath);
 
-		if(path.status == NavMeshPathStatus.PathComplete)
+		if(dungeonPath.status == NavMeshPathStatus.PathComplete)
 			return true;
 		else
 			return false;
@@ -119,6 +119,10 @@ public class Dungeon : MonoBehaviour {
 
 	public int getHoveredY(){
 		return hoveredIndex.y;
+	}
+
+	public NavMeshPath getDungeonPath(){
+		return dungeonPath;
 	}
 		
 	public void RegisterOnGridTileChangedCallback(Action<int, int, int> _callback){
