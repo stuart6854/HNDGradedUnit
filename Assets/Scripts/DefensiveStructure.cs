@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class DefensiveStructure : MonoBehaviour {
 
-
+	public int manaCost;
 
 }

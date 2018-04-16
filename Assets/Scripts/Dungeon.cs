@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class Dungeon : MonoBehaviour {
 
+	public static int Mana = 100;
+
 	public DefensiveStructureManager dsm;
 	public DungeonGraphicsManager dungeonGraphicsManager;
 
@@ -42,8 +44,9 @@ public class Dungeon : MonoBehaviour {
 						dungeonEnd = new Vec2I(x, y);
 
 					//TODO: Dungeon Start/End Graphics
-				}else
+				} else {
 					setGridTile(x, y, 1);
+				}
 			}
 		}
 
@@ -63,14 +66,6 @@ public class Dungeon : MonoBehaviour {
 			hoveredIndex.x = -1;
 			hoveredIndex.y = -1;
 		}
-
-		if(Input.GetMouseButtonDown(0)){
-			if(hoveredIndex.x != -1 && hoveredIndex.y != -1){
-				setGridTile(hoveredIndex.x, hoveredIndex.y, (getGridTile(hoveredIndex.x, hoveredIndex.y) == 0) ? 1 : 0);
-			}
-		}
-
-
 	}
 
 	public bool doesPathExist(){
@@ -133,6 +128,7 @@ public class Dungeon : MonoBehaviour {
 	private void OnGUI(){
 		GUILayout.Label ("Tile: " + hoveredIndex.x + "," + hoveredIndex.y);
 		GUILayout.Label ("Tile Type: " + getGridTile (hoveredIndex.x, hoveredIndex.y));
+		GUI.Label(new Rect(0, Screen.height - 20, 100, 20), "Mana: " + Mana);
 	}
 
 }

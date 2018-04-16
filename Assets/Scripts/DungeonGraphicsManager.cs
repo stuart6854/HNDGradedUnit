@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class DungeonGraphicsManager : MonoBehaviour {
 
@@ -95,16 +96,21 @@ public class DungeonGraphicsManager : MonoBehaviour {
 	public int tileSizeSqrd = 4;
 
 	public GameObject nullTilePrefab;
+	public GameObject floorPrefab;
 	public GameObject[] dungeonTiles;
+	public GameObject[] towersAndTraps;
 
 	private Dictionary<Vec2I, GameObject> gridTileObjs;
+	private Dictionary<Vec2I, GameObject> defensiveStructureObjs;
 
 	private bool isDirty;
 
 	private void Awake () {
 		gridTileObjs = new Dictionary<Vec2I, GameObject>();
+		defensiveStructureObjs = new Dictionary<Vec2I, GameObject>();
 
 		dungeon.RegisterOnGridTileChangedCallback(OnDungeonGridTileChangedCallback);
+		dungeon.dsm.RegisterOnGridStructureChangedCallback(OnDefensiveStructureChangedCallback);
 	}
 
 	private void Start(){
@@ -134,6 +140,18 @@ public class DungeonGraphicsManager : MonoBehaviour {
 		isDirty = true;
 	}
 
+	private void OnDefensiveStructureChangedCallback(int _x, int _y, GameObject _ds){
+		Vec2I pos = new Vec2I(_x, _y);
+		if(defensiveStructureObjs.ContainsKey(pos)){
+			Destroy(defensiveStructureObjs[pos]);
+			defensiveStructureObjs.Remove(pos);
+		}	
+		
+		defensiveStructureObjs.Add(pos, CreateObj((_ds != null) ? _ds : floorPrefab, pos.ToVec3() * tileSizeSqrd, Quaternion.identity));
+
+		navMeshHandler.BuildNavMesh();
+	}
+
 	private void AutoTileDungeon(){
 		//print ("Cleaning Graphics!");
 
@@ -142,9 +160,7 @@ public class DungeonGraphicsManager : MonoBehaviour {
 				if(!dungeon.isValidIndex(x, y))
 					continue;
 
-				Vec2I tilePos;
-				tilePos.x = x;
-				tilePos.y = y;
+				Vec2I tilePos = new Vec2I(x, y);
 				if(gridTileObjs.ContainsKey(tilePos)){
 					Destroy(gridTileObjs[tilePos]);
 					gridTileObjs.Remove(tilePos);

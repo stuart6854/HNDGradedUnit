@@ -7,6 +7,7 @@ public class WaveManager : MonoBehaviour {
 	public enum WaveState{ Intermission, Wave };
 
 	public Dungeon dungeon;
+	public BuildController buildController;
 
 	public Monster[] monsters;
 
@@ -32,9 +33,10 @@ public class WaveManager : MonoBehaviour {
 	private void StartWave(){
 		if(!dungeon.doesPathExist()){
 			Debug.Log("WaveManager -> No valid path through dungeon. Cannot start Wave!");
-
 			return;
 		}
+
+		buildController.SetBuildMode(BuildController.BuildMode.None);
 
 		GenerateWave();
 		StartCoroutine(SpawnWave());
