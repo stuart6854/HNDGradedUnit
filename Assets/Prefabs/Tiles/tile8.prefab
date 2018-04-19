@@ -370,14 +370,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641001906306344}
-  m_Mesh: {fileID: 4300128, guid: 7df1a927dd6a5314ea2541c2b50d676e, type: 3}
+  m_Mesh: {fileID: 4300032, guid: 58631f2a7dde2ad4eacfeec65bb3a51e, type: 3}
 --- !u!33 &33368375177312584
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1321484742752872}
-  m_Mesh: {fileID: 4300122, guid: 7df1a927dd6a5314ea2541c2b50d676e, type: 3}
+  m_Mesh: {fileID: 4300038, guid: 58631f2a7dde2ad4eacfeec65bb3a51e, type: 3}
 --- !u!33 &33939741076604474
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -391,7 +391,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1829996199523450}
-  m_Mesh: {fileID: 4300122, guid: 7df1a927dd6a5314ea2541c2b50d676e, type: 3}
+  m_Mesh: {fileID: 4300038, guid: 58631f2a7dde2ad4eacfeec65bb3a51e, type: 3}
 --- !u!64 &64232022424911150
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -405,7 +405,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300122, guid: 7df1a927dd6a5314ea2541c2b50d676e, type: 3}
+  m_Mesh: {fileID: 4300038, guid: 58631f2a7dde2ad4eacfeec65bb3a51e, type: 3}
 --- !u!64 &64546294722551962
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -419,7 +419,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300128, guid: 7df1a927dd6a5314ea2541c2b50d676e, type: 3}
+  m_Mesh: {fileID: 4300032, guid: 58631f2a7dde2ad4eacfeec65bb3a51e, type: 3}
 --- !u!64 &64546974894306430
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -433,7 +433,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300122, guid: 7df1a927dd6a5314ea2541c2b50d676e, type: 3}
+  m_Mesh: {fileID: 4300038, guid: 58631f2a7dde2ad4eacfeec65bb3a51e, type: 3}
 --- !u!108 &108858385056689464
 Light:
   m_ObjectHideFlags: 1

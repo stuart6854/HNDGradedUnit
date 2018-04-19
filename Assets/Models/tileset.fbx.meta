@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 58631f2a7dde2ad4eacfeec65bb3a51e
+timeCreated: 1524059368
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Floor
+    100002: Pillar
+    100004: Roof
+    100006: tile0
+    100008: tile1
+    100010: tile10
+    100012: tile11
+    100014: tile12
+    100016: tile13
+    100018: tile14
+    100020: tile15
+    100022: tile2
+    100024: tile3
+    100026: tile4
+    100028: tile5
+    100030: tile6
+    100032: tile7
+    100034: tile8
+    100036: tile9
+    100038: //RootNode
+    100040: Wall
+    400000: Floor
+    400002: Pillar
+    400004: Roof
+    400006: tile0
+    400008: tile1
+    400010: tile10
+    400012: tile11
+    400014: tile12
+    400016: tile13
+    400018: tile14
+    400020: tile15
+    400022: tile2
+    400024: tile3
+    400026: tile4
+    400028: tile5
+    400030: tile6
+    400032: tile7
+    400034: tile8
+    400036: tile9
+    400038: //RootNode
+    400040: Wall
+    2100000: lambert
+    2100002: dungeonStone
+    2100004: dungeonFloor
+    2100006: dungeonRoof
+    2300000: Floor
+    2300002: Pillar
+    2300004: Roof
+    2300006: tile0
+    2300008: tile1
+    2300010: tile10
+    2300012: tile11
+    2300014: tile12
+    2300016: tile13
+    2300018: tile14
+    2300020: tile15
+    2300022: tile2
+    2300024: tile3
+    2300026: tile4
+    2300028: tile5
+    2300030: tile6
+    2300032: tile7
+    2300034: tile8
+    2300036: tile9
+    2300038: Wall
+    3300000: Floor
+    3300002: Pillar
+    3300004: Roof
+    3300006: tile0
+    3300008: tile1
+    3300010: tile10
+    3300012: tile11
+    3300014: tile12
+    3300016: tile13
+    3300018: tile14
+    3300020: tile15
+    3300022: tile2
+    3300024: tile3
+    3300026: tile4
+    3300028: tile5
+    3300030: tile6
+    3300032: tile7
+    3300034: tile8
+    3300036: tile9
+    3300038: Wall
+    4300000: tile5
+    4300002: tile2
+    4300004: tile0
+    4300006: tile1
+    4300008: tile3
+    4300010: tile4
+    4300012: tile15
+    4300014: tile6
+    4300016: tile7
+    4300018: tile12
+    4300020: tile13
+    4300022: tile14
+    4300024: tile8
+    4300026: tile9
+    4300028: tile10
+    4300030: tile11
+    4300032: Wall
+    4300034: Floor
+    4300036: Roof
+    4300038: Pillar
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
