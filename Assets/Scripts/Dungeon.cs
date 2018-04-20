@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Dungeon : MonoBehaviour {
 
-	public static int Mana = 100;
+	public static int mana = 100;
 
 	public DefensiveStructureManager dsm;
 	public DungeonGraphicsManager dungeonGraphicsManager;
@@ -22,6 +23,8 @@ public class Dungeon : MonoBehaviour {
 	private Action<int, int, int> onGridTileChangedCallback;
 
 	private NavMeshPath dungeonPath;
+
+	public Text manaText;
 
 	private void Start () {
 		dungeonPath = new NavMeshPath();
@@ -66,6 +69,8 @@ public class Dungeon : MonoBehaviour {
 			hoveredIndex.x = -1;
 			hoveredIndex.y = -1;
 		}
+
+		manaText.text = mana + " Mana";
 	}
 
 	public bool doesPathExist(){
@@ -128,7 +133,7 @@ public class Dungeon : MonoBehaviour {
 	private void OnGUI(){
 		GUILayout.Label ("Tile: " + hoveredIndex.x + "," + hoveredIndex.y);
 		GUILayout.Label ("Tile Type: " + getGridTile (hoveredIndex.x, hoveredIndex.y));
-		GUI.Label(new Rect(0, Screen.height - 20, 100, 20), "Mana: " + Mana);
+		GUI.Label(new Rect(0, Screen.height - 20, 100, 20), "Mana: " + mana);
 	}
 
 }

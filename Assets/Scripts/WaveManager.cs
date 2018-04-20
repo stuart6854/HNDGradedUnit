@@ -6,6 +6,8 @@ public class WaveManager : MonoBehaviour {
 
 	public enum WaveState{ Intermission, Wave };
 
+	public StateManager stateManager;
+	public UIManager uiManager;
 	public Dungeon dungeon;
 	public BuildController buildController;
 
@@ -30,12 +32,19 @@ public class WaveManager : MonoBehaviour {
 			EndWave();
 	}
 
-	private void StartWave(){
+	public void StartWave(){
+		if (waveState != WaveState.Intermission)
+			return;
+
 		if(!dungeon.doesPathExist()){
 			Debug.Log("WaveManager -> No valid path through dungeon. Cannot start Wave!");
 			return;
 		}
 
+		uiManager.waveUI.SetActive (true);
+		uiManager.buildUI.SetActive (false);
+
+		stateManager.SetGameState (StateManager.GameState.Wave);
 		buildController.SetBuildMode(BuildController.BuildMode.None);
 
 		GenerateWave();
@@ -46,6 +55,11 @@ public class WaveManager : MonoBehaviour {
 	private void EndWave(){
 		waveState = WaveState.Intermission;
 		waveCounter++;
+
+		uiManager.waveUI.SetActive (false);
+		uiManager.buildUI.SetActive (true);
+
+		stateManager.SetGameState (StateManager.GameState.Build);
 	}
 
 	private void GenerateWave(){

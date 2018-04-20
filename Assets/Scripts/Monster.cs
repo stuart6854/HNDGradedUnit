@@ -22,8 +22,10 @@ public abstract class Monster : MonoBehaviour {
 	}
 
 	private void Start(){
-		path = waveManager.dungeon.getDungeonPath();
-		navAgent.SetPath(path);
+		if (waveManager != null) {
+			path = waveManager.dungeon.getDungeonPath ();
+			navAgent.SetPath (path);
+		}
 	}
 
 	private void Update(){
@@ -44,6 +46,9 @@ public abstract class Monster : MonoBehaviour {
 	public abstract int getMonstersInWave(int wave);
 
 	private void OnDrawGizmosSelected(){
+		if (navAgent == null || navAgent.destination == null)
+			return;
+		
 		Gizmos.color = Color.magenta;
 		Gizmos.DrawWireSphere(navAgent.destination, 0.25f);
 

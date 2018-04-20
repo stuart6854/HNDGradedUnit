@@ -7,59 +7,74 @@ public class BuildController : MonoBehaviour {
 	public static readonly int Wall_Place_Cost = 10;
 	public static readonly int Wall_Remove_Cost = (int)(Wall_Place_Cost * 0.9f);
 
+	public StateManager stateManager;
 	public Dungeon dungeon;
 
 	public GameObject tileCursor;
 
 	public enum BuildMode{ None, Wall, DefenceStructure,  DefenceStructure_Destroy}
-	private BuildMode buildMode = BuildMode.DefenceStructure;
+	private BuildMode buildMode;
 
 	private int selectedDefStructure;
 
 	private void Update(){
-		int x = dungeon.getHoveredX();
-		int y = dungeon.getHoveredY();
+		if (Input.GetKeyDown (KeyCode.Escape))
+			SetBuildMode (BuildMode.None);
 
-		tileCursor.transform.position = new Vector3(x * dungeon.dungeonGraphicsManager.tileSizeSqrd, 0, y * dungeon.dungeonGraphicsManager.tileSizeSqrd);
-		if(y != -1 && y != -1) {
-			tileCursor.SetActive(true);
+		if (stateManager.GetGameState () == StateManager.GameState.Build) {
+			int x = dungeon.getHoveredX ();
+			int y = dungeon.getHoveredY ();
 
-			if(Input.GetMouseButtonDown(0)) {
-				if(buildMode == BuildMode.Wall) {
-					int tile = dungeon.getGridTile(x, y);
-					if(tile == 0) {
-						if(Dungeon.Mana >= Wall_Place_Cost) {
-							dungeon.setGridTile(x, y, 1);
-							Dungeon.Mana -= Wall_Place_Cost;
+
+			tileCursor.transform.position = new Vector3 (x * dungeon.dungeonGraphicsManager.tileSizeSqrd, 0, y * dungeon.dungeonGraphicsManager.tileSizeSqrd);
+			if (y != -1 && y != -1) {
+				if (buildMode == BuildMode.None)
+					tileCursor.SetActive (false);
+				else
+					tileCursor.SetActive (true);
+
+				if (Input.GetMouseButtonDown (0)) {
+					if (buildMode == BuildMode.Wall) {
+						int tile = dungeon.getGridTile (x, y);
+						if (tile == 0) {
+							if (Dungeon.mana >= Wall_Place_Cost) {
+								dungeon.setGridTile (x, y, 1);
+								Dungeon.mana -= Wall_Place_Cost;
+							}
+						} else if (tile == 1) {
+							if (Dungeon.mana >= Wall_Remove_Cost) {
+								dungeon.setGridTile (x, y, 0);
+								Dungeon.mana -= Wall_Remove_Cost;
+							}
+						}				
+					} else if (buildMode == BuildMode.DefenceStructure) {
+						DefensiveStructure ds = dungeon.dungeonGraphicsManager.towersAndTraps [selectedDefStructure].GetComponent<DefensiveStructure> ();
+
+						if (Dungeon.mana >= ds.manaCost) {
+							dungeon.dsm.setDefensiveStructure (x, y, ds);
+							Dungeon.mana -= ds.manaCost;
 						}
-					} else if(tile == 1) {
-						if(Dungeon.Mana >= Wall_Remove_Cost) {
-							dungeon.setGridTile(x, y, 0);
-							Dungeon.Mana -= Wall_Remove_Cost;
+					} else if (buildMode == BuildMode.DefenceStructure_Destroy) {
+						DefensiveStructure ds = dungeon.dsm.getDefensiveStructure (x, y);
+
+						if (ds != null) {
+							dungeon.dsm.setDefensiveStructure (x, y, null);
+							Dungeon.mana += (int)(ds.manaCost * 0.9f);
 						}
-					}				
-				} else if(buildMode == BuildMode.DefenceStructure) {
-					DefensiveStructure ds = dungeon.dungeonGraphicsManager.towersAndTraps[selectedDefStructure].GetComponent<DefensiveStructure>();
-
-					if(Dungeon.Mana >= ds.manaCost) {
-						dungeon.dsm.setDefensiveStructure(x, y, ds);
-						Dungeon.Mana -= ds.manaCost;
-					}
-				}else if(buildMode == BuildMode.DefenceStructure_Destroy){
-					DefensiveStructure ds = dungeon.dsm.getDefensiveStructure(x, y);
-
-					if(ds != null) {
-						dungeon.dsm.setDefensiveStructure(x, y, null);
-						Dungeon.Mana += (int)(ds.manaCost * 0.9f);
 					}
 				}
+			} else {
+				tileCursor.SetActive (false);
 			}
 		}else{
-			tileCursor.SetActive(false);
+			tileCursor.SetActive (false);
 		}
 	}
 
 	private void OnGUI(){
+		if (stateManager.GetGameState () != StateManager.GameState.Build)
+			return;
+
 		if(buildMode == BuildMode.DefenceStructure) {
 			int towerTrapCount = dungeon.dungeonGraphicsManager.towersAndTraps.Length;
 
@@ -93,6 +108,14 @@ public class BuildController : MonoBehaviour {
 
 	public void SetBuildMode(BuildMode _mode){
 		buildMode = _mode;
+	}
+
+	public void SetBuildMode(int _mode){
+		buildMode = (BuildMode)_mode;
+	}
+
+	public void SetDefObject(int _index){
+		selectedDefStructure = _index;
 	}
 
 }

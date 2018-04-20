@@ -106,6 +106,9 @@ ModelImporter:
     100196: pCylinder99
     100198: pPlane2
     100200: //RootNode
+    100202: _UNKNOWN_REF_NODE_fosterParent1
+    100204: Floor
+    100206: Spikes
     400000: group1
     400002: pCone1
     400004: pCone10
@@ -207,6 +210,9 @@ ModelImporter:
     400196: pCylinder99
     400198: pPlane2
     400200: //RootNode
+    400202: _UNKNOWN_REF_NODE_fosterParent1
+    400204: Floor
+    400206: Spikes
     2100000: floor
     2100002: SpearShaft
     2100004: Spearhead
@@ -309,6 +315,8 @@ ModelImporter:
     2300192: pCylinder98
     2300194: pCylinder99
     2300196: pPlane2
+    2300198: Floor
+    2300200: Spikes
     3300000: pCone1
     3300002: pCone10
     3300004: pCone11
@@ -408,6 +416,8 @@ ModelImporter:
     3300192: pCylinder98
     3300194: pCylinder99
     3300196: pPlane2
+    3300198: Floor
+    3300200: Spikes
     4300000: pPlane2
     4300002: pCylinder51
     4300004: pCone1
@@ -507,9 +517,27 @@ ModelImporter:
     4300192: pCone42
     4300194: pCylinder99
     4300196: pCone49
-    7400000: Take 001
+    4300198: Floor
+    4300200: Spikes
+    7400000: TrapActivate
+    7400002: TrapReload
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpearShaft
+    second: {fileID: 2100000, guid: 1351c9ef192946c4c883e9a1f46173ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spearhead
+    second: {fileID: 2100000, guid: 12e009740fedaef488e45b7ca0045282, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor
+    second: {fileID: 2100000, guid: d7510ec1065a512419ec810ca461e3fd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -535,17 +563,73 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: TrapActivate
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: TrapReload
+      takeName: Take 001
+      firstFrame: 6
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -560,8 +644,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 0
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

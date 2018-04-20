@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: f7e89dd16e6dcc849a5bef2d5823cd3a
+timeCreated: 1524215000
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pinlight
+  fontNames:
+  - Pinlight
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b2c606a80b651094fab4f638fdd5fb5f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

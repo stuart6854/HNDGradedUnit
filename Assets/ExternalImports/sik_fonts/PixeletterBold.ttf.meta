@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 9e9ec1534828ba2488e535c43c17aaff
+timeCreated: 1524214998
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pixeletter
+  fontNames:
+  - Pixeletter
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4019271109819c242b29bcaed1839b25, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
