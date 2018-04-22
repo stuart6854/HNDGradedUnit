@@ -14,8 +14,16 @@ public class DefensiveStructure : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision _col){
 		Monster m = _col.gameObject.GetComponent<Monster> ();
-		if(m != null){
+		if(m != null && !m.IsDead()){
 			validTargets.Add (m.gameObject);
+		}
+	}
+
+	private void OnCollisionStay(Collision _col){
+		Monster m = _col.transform.GetComponent<Monster>();
+		if(m != null){
+			if(m.IsDead() && validTargets.Contains(_col.gameObject))
+				validTargets.Remove(_col.gameObject);
 		}
 	}
 

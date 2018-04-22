@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 64919462798497450}
   m_Layer: 0
   m_Name: Pillar (3)
-  m_TagString: Untagged
+  m_TagString: DungeonAsset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 64390706341454554}
   m_Layer: 0
   m_Name: Pillar
-  m_TagString: Untagged
+  m_TagString: DungeonAsset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

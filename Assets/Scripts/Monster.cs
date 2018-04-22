@@ -10,6 +10,8 @@ public abstract class Monster : MonoBehaviour {
 	public float health = 1;
 	public int manaFromDeath;
 
+	private bool isDead;
+
 	[HideInInspector]
 	public WaveManager waveManager;
 
@@ -29,14 +31,12 @@ public abstract class Monster : MonoBehaviour {
 	}
 
 	private void Update(){
-		if(health <= 0){
-			FindObjectOfType<WaveManager>().MonsterReachEnd(this);
-			this.enabled = false;
-		}
+		if(health <= 0 && !isDead){
+			isDead = true;
 
-//		if(!navAgent.hasPath){
-//			navAgent.SetDestination(waveManager.dungeon.getDungeonEndPos());
-//		}
+			FindObjectOfType<WaveManager>().MonsterReachEnd(this);
+			navAgent.enabled = false;
+		}
 	}
 
 	public void OnHit(float _dmg){
@@ -44,6 +44,14 @@ public abstract class Monster : MonoBehaviour {
 	}
 
 	public abstract int getMonstersInWave(int wave);
+
+	public bool IsDead(){
+		return isDead;
+	}
+
+	public float GetRemainingDistance(){
+		return navAgent.remainingDistance;
+	}
 
 	private void OnDrawGizmosSelected(){
 		if (navAgent == null || navAgent.destination == null)
