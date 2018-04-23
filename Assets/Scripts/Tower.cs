@@ -70,7 +70,7 @@ public class Tower : DefensiveStructure {
 		foreach(GameObject obj in validTargets){
 			if(!Physics.Raycast(projecticleOrigin.position, obj.transform.position - projecticleOrigin.position))
 				continue;
-
+			
 			//float dist = Vector3.Distance (transform.position, obj.transform.position);
 			float dist = obj.GetComponent<Monster>().GetRemainingDistance();
 			if (dist < minDist)

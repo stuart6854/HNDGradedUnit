@@ -23,10 +23,10 @@ GameObject:
   - component: {fileID: 23546397011033902}
   - component: {fileID: 65867906728559964}
   - component: {fileID: 195400666180466928}
-  - component: {fileID: 114623499569594240}
   - component: {fileID: 54105578577136710}
+  - component: {fileID: 114331281563307868}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Slime
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1353954998773516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.731, y: 0.415, z: -16.544}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 0.75, y: 1, z: 0.75}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114623499569594240
+--- !u!114 &114331281563307868
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -121,10 +121,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353954998773516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28b1481cab9a59346bff8f09f14d8c87, type: 3}
+  m_Script: {fileID: 11500000, guid: e941a8ad806fd744bbc5d25881b92e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   health: 1
   manaFromDeath: 10
   waveManager: {fileID: 0}

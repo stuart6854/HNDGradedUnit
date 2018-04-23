@@ -22,7 +22,6 @@ public class Projectile : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter(Collision _col){
-		print("Collision: " + _col.gameObject.name);
 		if(!_col.transform.CompareTag("Monster") && !_col.transform.CompareTag("DungeonAsset"))
 			return;
 

@@ -71,7 +71,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4442254192540224}
-  - component: {fileID: 95728373280757616}
   - component: {fileID: 65490546137703986}
   m_Layer: 0
   m_Name: Ballista
@@ -632,23 +631,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2, z: 2.5}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!95 &95728373280757616
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1746516618867022}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 49409dd876f6d3543a4c675302e1b271, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114406698097696556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -662,7 +644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   validTargets: []
   manaCost: 20
-  range: 5
+  range: 6
   rateOfFireSec: 1
   yaw: {fileID: 4801732823842386}
   pitch: {fileID: 4036813930366958}
@@ -679,5 +661,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.25
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}

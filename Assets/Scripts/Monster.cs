@@ -50,7 +50,12 @@ public abstract class Monster : MonoBehaviour {
 	}
 
 	public float GetRemainingDistance(){
-		return navAgent.remainingDistance;
+		float distance = 0.0f;
+		Vector3[] corners = navAgent.path.corners;
+		for (int c = 0; c < corners.Length - 1; ++c) {
+			distance += Mathf.Abs((corners[c] - corners[c + 1]).magnitude);
+		}
+		return distance;
 	}
 
 	private void OnDrawGizmosSelected(){
@@ -68,5 +73,7 @@ public abstract class Monster : MonoBehaviour {
 		}
 
 	}
+
+
 
 }
