@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour {
 
+
 	public enum WaveState{ Intermission, Wave };
 
 	public StateManager stateManager;
@@ -27,9 +28,6 @@ public class WaveManager : MonoBehaviour {
 	private void Update(){
 		if(Input.GetKeyDown(KeyCode.F5) && waveState == WaveState.Intermission)
 			StartWave();
-
-		if(waveState == WaveState.Wave && monstersRemaining <= 0)
-			EndWave();
 	}
 
 	public void StartWave(){
@@ -94,6 +92,15 @@ public class WaveManager : MonoBehaviour {
 		monstersRemaining--;
 
 		//Remove player health or something
+		stateManager.SetGameState(StateManager.GameState.GameOver);
+		Debug.Log("Monster Reached End! GAME OVER!");
+	}
+
+	public void MonsterDied(Monster m){
+		monstersRemaining--;
+
+		if(waveState == WaveState.Wave && monstersRemaining <= 0)
+			EndWave();
 	}
 
 	public void OnGUI(){

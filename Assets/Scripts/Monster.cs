@@ -34,8 +34,12 @@ public abstract class Monster : MonoBehaviour {
 		if(health <= 0 && !isDead){
 			isDead = true;
 
-			FindObjectOfType<WaveManager>().MonsterReachEnd(this);
+			FindObjectOfType<WaveManager>().mo(this);
 			navAgent.enabled = false;
+		}
+
+		if(GetRemainingDistance() <= 0){
+			waveManager.MonsterReachEnd(this);
 		}
 	}
 
