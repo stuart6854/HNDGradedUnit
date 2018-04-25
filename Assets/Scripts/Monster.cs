@@ -34,11 +34,13 @@ public abstract class Monster : MonoBehaviour {
 		if(health <= 0 && !isDead){
 			isDead = true;
 
-			FindObjectOfType<WaveManager>().mo(this);
+			FindObjectOfType<WaveManager>().MonsterDied(this);
 			navAgent.enabled = false;
+
+			StartCoroutine (OnDeath());
 		}
 
-		if(GetRemainingDistance() <= 0){
+		if(GetRemainingDistance() <= 0 && !isDead){
 			waveManager.MonsterReachEnd(this);
 		}
 	}
@@ -60,6 +62,11 @@ public abstract class Monster : MonoBehaviour {
 			distance += Mathf.Abs((corners[c] - corners[c + 1]).magnitude);
 		}
 		return distance;
+	}
+
+	private IEnumerator OnDeath(){
+		yield return new WaitForSeconds (2.0f);
+		Destroy (gameObject);
 	}
 
 	private void OnDrawGizmosSelected(){

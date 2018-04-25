@@ -1,92 +1,19 @@
 fileFormatVersion: 2
-guid: 75958b35a7bc0424f84c6b651af84491
-timeCreated: 1518176350
+guid: b1ef8ca88ad0e2f4da53f2e39917f56b
+timeCreated: 1524662331
 licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube3
-    100004: pCube4
-    100006: pCube5
-    100008: pCube6
-    100010: pCube7
-    100012: polySurface1
-    100014: transform1
-    100016: pCube8
-    100018: Goblin
-    100020: pCube9
-    100022: chest
-    100024: elbow_r
-    100026: elbox_l
-    100028: foot_l
-    100030: foot_r
-    100032: hand_l
-    100034: hand_r
-    100036: head
-    100038: hips
-    100040: neck
-    100042: shin_l
-    100044: shin_r
-    100046: shoulder_l
-    100048: shoulder_r
-    100050: stomach
-    100052: thigh_l
-    100054: thigh_r
     400000: //RootNode
-    400002: pCube3
-    400004: pCube4
-    400006: pCube5
-    400008: pCube6
-    400010: pCube7
-    400012: polySurface1
-    400014: transform1
-    400016: pCube8
-    400018: Goblin
-    400020: pCube9
-    400022: chest
-    400024: elbow_r
-    400026: elbox_l
-    400028: foot_l
-    400030: foot_r
-    400032: hand_l
-    400034: hand_r
-    400036: head
-    400038: hips
-    400040: neck
-    400042: shin_l
-    400044: shin_r
-    400046: shoulder_l
-    400048: shoulder_r
-    400050: stomach
-    400052: thigh_l
-    400054: thigh_r
     2100000: goblinSkin
-    2100002: goblinEyeBrow
-    2100004: goblinHair
-    2300000: pCube3
-    2300002: pCube4
-    2300004: pCube5
-    2300006: pCube6
-    2300008: polySurface1
-    2300010: pCube8
-    2300012: Goblin
-    3300000: pCube3
-    3300002: pCube4
-    3300004: pCube5
-    3300006: pCube6
-    3300008: polySurface1
-    3300010: pCube8
-    3300012: Goblin
-    4300000: pCube3
-    4300002: pCube4
-    4300004: pCube5
-    4300006: pCube6
-    4300008: polySurface1
-    4300010: pCube8
-    4300012: Goblin
+    2100002: goblinHair
+    2100004: goblinEyeBrow
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Goblin
     9500000: //RootNode
-    13700000: Goblin
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -132,13 +59,13 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.4
+    globalScale: 0.5
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -151,13 +78,13 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 0
     normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -176,7 +103,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
