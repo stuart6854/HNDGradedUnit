@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour {
 
+	private static int Waves_To_Win = 10;
 
 	public enum WaveState{ Intermission, Wave };
 
@@ -11,6 +13,8 @@ public class WaveManager : MonoBehaviour {
 	public UIManager uiManager;
 	public Dungeon dungeon;
 	public BuildController buildController;
+
+	public Text gameLoseWaveTxt;
 
 	public Monster[] monsters;
 
@@ -23,11 +27,16 @@ public class WaveManager : MonoBehaviour {
 	private void Start(){
 		waveCounter = 1;
 		wave = new Queue<WaveMonster>();
+
+		uiManager.ChangeUIState (0);
 	}
 
 	private void Update(){
 		if(Input.GetKeyDown(KeyCode.F5) && waveState == WaveState.Intermission)
 			StartWave();
+
+		if(gameLoseWaveTxt != null)
+			gameLoseWaveTxt.text = "You reached wave " + waveCounter + "!";
 	}
 
 	public void StartWave(){
@@ -39,8 +48,7 @@ public class WaveManager : MonoBehaviour {
 			return;
 		}
 
-		uiManager.waveUI.SetActive (true);
-		uiManager.buildUI.SetActive (false);
+		uiManager.ChangeUIState (1);
 
 		stateManager.SetGameState (StateManager.GameState.Wave);
 		buildController.SetBuildMode(BuildController.BuildMode.None);
@@ -54,10 +62,13 @@ public class WaveManager : MonoBehaviour {
 		waveState = WaveState.Intermission;
 		waveCounter++;
 
-		uiManager.waveUI.SetActive (false);
-		uiManager.buildUI.SetActive (true);
-
+		uiManager.ChangeUIState (0);
 		stateManager.SetGameState (StateManager.GameState.Build);
+
+		if(waveCounter - 1 == Waves_To_Win){
+			stateManager.SetGameState(StateManager.GameState.Paused);
+			uiManager.ChangeUIState (4);
+		}
 	}
 
 	private void GenerateWave(){
@@ -93,7 +104,7 @@ public class WaveManager : MonoBehaviour {
 
 		//Remove player health or something
 		stateManager.SetGameState(StateManager.GameState.GameOver);
-		Debug.Log("Monster Reached End! GAME OVER!");
+		uiManager.ChangeUIState (3);
 	}
 
 	public void MonsterDied(Monster m){
@@ -104,11 +115,11 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	public void OnGUI(){
-		GUI.Label(new Rect(0, 75, 250, 30), "WaveState: " + waveState.ToString());
-		GUI.Label(new Rect(0, 90, 250, 30), "Wave: " + waveCounter);
-		GUI.Label(new Rect(0, 105, 250, 30), "Monsters Remaining: " + monstersRemaining);
-		GUI.Label(new Rect(0, 120, 250, 30), "Dungeon Start: " + monstersRemaining);
-		GUI.Label(new Rect(0, 135, 250, 30), "DungeonEnd: " + monstersRemaining);
+//		GUI.Label(new Rect(0, 75, 250, 30), "WaveState: " + waveState.ToString());
+//		GUI.Label(new Rect(0, 90, 250, 30), "Wave: " + waveCounter);
+//		GUI.Label(new Rect(0, 105, 250, 30), "Monsters Remaining: " + monstersRemaining);
+//		GUI.Label(new Rect(0, 120, 250, 30), "Dungeon Start: " + monstersRemaining);
+//		GUI.Label(new Rect(0, 135, 250, 30), "DungeonEnd: " + monstersRemaining);
 	}
 
 	private class WaveMonster{

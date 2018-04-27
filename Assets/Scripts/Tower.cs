@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 [RequireComponent(typeof(SphereCollider))]
 public class Tower : DefensiveStructure {
@@ -84,7 +84,7 @@ public class Tower : DefensiveStructure {
 	}
 
 	private void OnDrawGizmos(){
-		Handles.DrawWireDisc(transform.position, Vector3.up, range);
+		//Handles.DrawWireDisc(transform.position, Vector3.up, range);
 		if(target != null){
 			Gizmos.color = Color.red;
 			Gizmos.DrawSphere(target.transform.position, 0.1f);

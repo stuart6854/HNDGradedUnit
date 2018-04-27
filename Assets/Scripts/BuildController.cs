@@ -72,38 +72,38 @@ public class BuildController : MonoBehaviour {
 	}
 
 	private void OnGUI(){
-		if (stateManager.GetGameState () != StateManager.GameState.Build)
-			return;
-
-		if(buildMode == BuildMode.DefenceStructure) {
-			int towerTrapCount = dungeon.dungeonGraphicsManager.towersAndTraps.Length;
-
-			if(buildMode == BuildMode.DefenceStructure) {
-				if(GUI.Button(new Rect(200, 10, 20, 20), "<"))
-					selectedDefStructure--;
-			
-				if(GUI.Button(new Rect(320, 10, 20, 20), ">"))
-					selectedDefStructure++;
-
-				if(selectedDefStructure < 0)
-					selectedDefStructure = towerTrapCount - 1;
-			
-				if(selectedDefStructure >= towerTrapCount)
-					selectedDefStructure = 0;
-			
-				if(GUI.Button(new Rect(220, 10, 100, 20), dungeon.dungeonGraphicsManager.towersAndTraps[selectedDefStructure].name)){
-					buildMode = BuildMode.Wall;
-				}
-			}
-		}else if(buildMode == BuildMode.Wall){
-			if(GUI.Button(new Rect(220, 10, 100, 20), "Wall Mode")){
-				buildMode = BuildMode.DefenceStructure_Destroy;
-			}
-		}else if(buildMode == BuildMode.DefenceStructure_Destroy){
-			if(GUI.Button(new Rect(220, 10, 100, 20), "DS Destroy")){
-				buildMode = BuildMode.DefenceStructure;
-			}
-		}
+//		if (stateManager.GetGameState () != StateManager.GameState.Build)
+//			return;
+//
+//		if(buildMode == BuildMode.DefenceStructure) {
+//			int towerTrapCount = dungeon.dungeonGraphicsManager.towersAndTraps.Length;
+//
+//			if(buildMode == BuildMode.DefenceStructure) {
+//				if(GUI.Button(new Rect(200, 10, 20, 20), "<"))
+//					selectedDefStructure--;
+//			
+//				if(GUI.Button(new Rect(320, 10, 20, 20), ">"))
+//					selectedDefStructure++;
+//
+//				if(selectedDefStructure < 0)
+//					selectedDefStructure = towerTrapCount - 1;
+//			
+//				if(selectedDefStructure >= towerTrapCount)
+//					selectedDefStructure = 0;
+//			
+//				if(GUI.Button(new Rect(220, 10, 100, 20), dungeon.dungeonGraphicsManager.towersAndTraps[selectedDefStructure].name)){
+//					buildMode = BuildMode.Wall;
+//				}
+//			}
+//		}else if(buildMode == BuildMode.Wall){
+//			if(GUI.Button(new Rect(220, 10, 100, 20), "Wall Mode")){
+//				buildMode = BuildMode.DefenceStructure_Destroy;
+//			}
+//		}else if(buildMode == BuildMode.DefenceStructure_Destroy){
+//			if(GUI.Button(new Rect(220, 10, 100, 20), "DS Destroy")){
+//				buildMode = BuildMode.DefenceStructure;
+//			}
+//		}
 	}
 
 	public void SetBuildMode(BuildMode _mode){

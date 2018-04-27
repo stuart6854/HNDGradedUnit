@@ -131,9 +131,9 @@ public class Dungeon : MonoBehaviour {
 	}
 
 	private void OnGUI(){
-		GUILayout.Label ("Tile: " + hoveredIndex.x + "," + hoveredIndex.y);
-		GUILayout.Label ("Tile Type: " + getGridTile (hoveredIndex.x, hoveredIndex.y));
-		GUI.Label(new Rect(0, Screen.height - 20, 100, 20), "Mana: " + mana);
+//		GUILayout.Label ("Tile: " + hoveredIndex.x + "," + hoveredIndex.y);
+//		GUILayout.Label ("Tile Type: " + getGridTile (hoveredIndex.x, hoveredIndex.y));
+//		GUI.Label(new Rect(0, Screen.height - 20, 100, 20), "Mana: " + mana);
 	}
 
 }

@@ -31,6 +31,8 @@ public class Projectile : MonoBehaviour {
 		Monster m = _col.transform.GetComponent<Monster>();
 		if(m != null)
 			m.OnHit(m.health);
+
+		Destroy (this);
 	}
 
 
