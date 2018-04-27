@@ -261,7 +261,7 @@ public class DungeonGraphicsManager : MonoBehaviour {
 	}
 
 	private void OnGUI(){
-		GUI.Label (new Rect(0, 50, 100, 30), "Bitmask: " + getAutoTileVal (dungeon.getHoveredX(), dungeon.getHoveredY()));
+		//GUI.Label (new Rect(0, 50, 100, 30), "Bitmask: " + getAutoTileVal (dungeon.getHoveredX(), dungeon.getHoveredY()));
 	}
 
 }
