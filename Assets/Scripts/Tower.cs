@@ -73,8 +73,10 @@ public class Tower : DefensiveStructure {
 			
 			//float dist = Vector3.Distance (transform.position, obj.transform.position);
 			float dist = obj.GetComponent<Monster>().GetRemainingDistance();
-			if (dist < minDist)
+			if (dist < minDist){
 				closestObj = obj;
+				minDist = dist;
+			}
 		}
 		target = closestObj;
 	}
