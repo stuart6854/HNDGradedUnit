@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   health: 1
-  manaFromDeath: 20
+  manaFromDeath: 25
   waveManager: {fileID: 0}
 --- !u!195 &195890858811918450
 NavMeshAgent:

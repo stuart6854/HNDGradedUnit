@@ -34,7 +34,7 @@ public abstract class Monster : MonoBehaviour {
 		if(health <= 0 && !isDead){
 			isDead = true;
 
-			FindObjectOfType<WaveManager>().MonsterDied(this);
+			waveManager.MonsterDied(this);
 			navAgent.enabled = false;
 
 			StartCoroutine (OnDeath());
@@ -65,7 +65,7 @@ public abstract class Monster : MonoBehaviour {
 	}
 
 	private IEnumerator OnDeath(){
-		yield return new WaitForSeconds (2.0f);
+		yield return new WaitForSeconds (0.5f);
 		Destroy (gameObject);
 	}
 

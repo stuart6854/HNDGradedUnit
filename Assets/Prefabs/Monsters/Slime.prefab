@@ -124,9 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e941a8ad806fd744bbc5d25881b92e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   health: 1
-  manaFromDeath: 10
+  manaFromDeath: 15
   waveManager: {fileID: 0}
 --- !u!195 &195400666180466928
 NavMeshAgent:

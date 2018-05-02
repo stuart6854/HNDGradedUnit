@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class Dungeon : MonoBehaviour {
 
-	public static int mana = 100;
+	private static readonly int Starting_Mana = 100;
+
+	public static int mana;
 
 	public DefensiveStructureManager dsm;
 	public DungeonGraphicsManager dungeonGraphicsManager;
@@ -27,6 +29,8 @@ public class Dungeon : MonoBehaviour {
 	public Text manaText;
 
 	private void Start () {
+		mana = Starting_Mana;
+
 		dungeonPath = new NavMeshPath();
 
 		if(dungeonLayoutTexture != null){

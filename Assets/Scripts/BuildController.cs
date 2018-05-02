@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildController : MonoBehaviour {
 
 	public static readonly int Wall_Place_Cost = 10;
-	public static readonly int Wall_Remove_Cost = (int)(Wall_Place_Cost * 0.9f);
+	public static readonly int Wall_Remove_Cost = (int)(Wall_Place_Cost * 0.8f);
 
 	public StateManager stateManager;
 	public Dungeon dungeon;
@@ -44,15 +44,16 @@ public class BuildController : MonoBehaviour {
 						} else if (tile == 1) {
 							if (Dungeon.mana >= Wall_Remove_Cost) {
 								dungeon.setGridTile (x, y, 0);
-								Dungeon.mana -= Wall_Remove_Cost;
+								Dungeon.mana += Wall_Remove_Cost;
 							}
 						}				
 					} else if (buildMode == BuildMode.DefenceStructure) {
-						DefensiveStructure ds = dungeon.dungeonGraphicsManager.towersAndTraps [selectedDefStructure].GetComponent<DefensiveStructure> ();
+						DefensiveStructure selectedDS = dungeon.dungeonGraphicsManager.towersAndTraps [selectedDefStructure].GetComponent<DefensiveStructure> ();
+						DefensiveStructure ds = dungeon.dsm.getDefensiveStructure (x, y);
 
-						if (Dungeon.mana >= ds.manaCost) {
-							dungeon.dsm.setDefensiveStructure (x, y, ds);
-							Dungeon.mana -= ds.manaCost;
+						if (ds == null && Dungeon.mana >= selectedDS.manaCost) {
+							dungeon.dsm.setDefensiveStructure (x, y, selectedDS);
+							Dungeon.mana -= selectedDS.manaCost;
 						}
 					} else if (buildMode == BuildMode.DefenceStructure_Destroy) {
 						DefensiveStructure ds = dungeon.dsm.getDefensiveStructure (x, y);

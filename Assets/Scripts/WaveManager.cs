@@ -14,6 +14,7 @@ public class WaveManager : MonoBehaviour {
 	public Dungeon dungeon;
 	public BuildController buildController;
 
+	public Text waveCounterTxt;
 	public Text gameLoseWaveTxt;
 
 	public Monster[] monsters;
@@ -35,8 +36,12 @@ public class WaveManager : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.F5) && waveState == WaveState.Intermission)
 			StartWave();
 
+		if (waveCounterTxt != null)
+			waveCounterTxt.text = "Wave " + waveCounter;
+
 		if(gameLoseWaveTxt != null)
 			gameLoseWaveTxt.text = "You reached wave " + waveCounter + "!";
+
 	}
 
 	public void StartWave(){
@@ -109,6 +114,7 @@ public class WaveManager : MonoBehaviour {
 
 	public void MonsterDied(Monster m){
 		monstersRemaining--;
+		Dungeon.mana += m.manaFromDeath;
 
 		if(waveState == WaveState.Wave && monstersRemaining <= 0)
 			EndWave();

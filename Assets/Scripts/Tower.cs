@@ -24,8 +24,12 @@ public class Tower : DefensiveStructure {
 	private float fireCooldown;
 	private float fireCooldownTimer;
 
+	private AudioSource audioSrc;
+
 	// Use this for initialization
 	void Start () {
+		audioSrc = GetComponent<AudioSource> ();
+
 		fireCooldown = 1.0f / rateOfFireSec;
 	}
 	
@@ -62,6 +66,7 @@ public class Tower : DefensiveStructure {
 
 	private void Fire(){
 		GameObject projectile = (GameObject)Instantiate(projectilePrefab, projecticleOrigin.position, Quaternion.LookRotation((target.transform.position - projecticleOrigin.position).normalized));
+		audioSrc.Play ();
 	}
 
 	private void PickTarget(){

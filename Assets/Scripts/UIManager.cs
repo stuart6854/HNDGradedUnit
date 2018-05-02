@@ -21,6 +21,10 @@ public class UIManager : MonoBehaviour {
 	public Text qualityLevelText;
 	public Text masterVolumeText;
 
+	private void Start(){
+		Time.timeScale = 1;
+	}
+
 	private void Update(){
 		if(qualityLevelText != null)
 			qualityLevelText.text = QualitySettings.names [QualitySettings.GetQualityLevel ()];
